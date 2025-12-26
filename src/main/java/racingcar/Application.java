@@ -1,7 +1,16 @@
 package racingcar;
 
+import racingcar.domain.MoveStrategy;
+import racingcar.domain.Race;
+import racingcar.domain.RandomMoveStrategy;
+import racingcar.util.Parser;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Race race = new Race();
+        MoveStrategy moveStrategy = new RandomMoveStrategy();
+        Controller controller = new Controller(moveStrategy, race);
+
+        controller.play();
     }
 }
