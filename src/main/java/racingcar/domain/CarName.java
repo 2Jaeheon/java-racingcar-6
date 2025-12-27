@@ -21,4 +21,22 @@ public class CarName {
     public String value() {
         return value;
     }
+
+    // 동등성 확보
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        // other라는 변수로 캐스팅 상태로 꺼내서 사용 가능
+        if (!(o instanceof CarName other)) {
+            return false;
+        }
+        return value.equals(other.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
 }

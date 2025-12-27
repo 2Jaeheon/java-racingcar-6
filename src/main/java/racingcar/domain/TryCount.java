@@ -5,7 +5,10 @@ public class TryCount {
 
     // Validate를 생성자에서 수정 -> Validator없어짐
     public TryCount(String raw) {
-        String s = (raw == null) ? "" : raw.trim();
+        String s = "";
+        if (raw != null) {
+            s = raw.trim();
+        }
 
         if (s.isEmpty()) {
             throw new IllegalArgumentException("시도 횟수는 1 이상의 정수여야 합니다.");
