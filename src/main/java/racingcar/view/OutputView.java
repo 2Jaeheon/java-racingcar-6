@@ -2,6 +2,8 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.Map;
+import racingcar.domain.CarStatus;
+import racingcar.domain.RaceProgress;
 
 public class OutputView {
 
@@ -9,14 +11,14 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public static void printRoundResult(Map<String, Integer> raceProgress) {
-        for (var e : raceProgress.entrySet()) {
-            System.out.println(e.getKey() + " : " + "-".repeat(e.getValue()));
+    public static void printRoundResult(RaceProgress progress) {
+        for (CarStatus s : progress.cars()) {
+            System.out.println(s.name() + " : " + "-".repeat(s.position()));
         }
         System.out.println();
     }
 
-    public static void printWinPlayers(List<String> winners) {
+    public static void printWinners(List<String> winners) {
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
